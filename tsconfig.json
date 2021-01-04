@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "strict": true,
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "baseUrl": "src",
+    "paths": {
+      "@utils/*": ["./utils/*"],
+      "@components/*": ["./components/*"],
+    },
+    "types": ["jest", "node"],
+  },
+  "exclude": [
+    "node_modules",
+    "public",
+    ".cache",
+    "__mocks__"
+  ]
+}

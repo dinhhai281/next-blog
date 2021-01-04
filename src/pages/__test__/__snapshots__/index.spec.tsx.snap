@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-hpgf8j"
+  >
+    <p
+      class="chakra-text css-0"
+    >
+      Hello World
+    </p>
+  </div>
+</DocumentFragment>
+`;
