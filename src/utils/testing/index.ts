@@ -8,3 +8,4 @@ export const siteMetadataStub: SiteMetadata = {
 };
 
 export * from './renderWithProviders';
+export * from './setupIntersectionObserverMock';

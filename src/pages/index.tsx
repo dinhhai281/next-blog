@@ -1,5 +1,5 @@
+import { ContentSection } from '@app/blocks/home';
 import { SEO } from '@app/components';
-import { Card } from '@app/components/Card';
 import { Avatar, Box, Button, Container, Flex, Image, Spacer, Text } from '@chakra-ui/react';
 import { FormattedMessage } from 'gatsby-plugin-intl';
 import React from 'react';
@@ -57,18 +57,9 @@ const Home = () => {
               Github
             </Button>
           </Flex>
-          <Flex direction='column' py={4}>
-            <Text color='white' fontSize='md' mb={4} textTransform='uppercase' letterSpacing={2}>
-              Programming
-            </Text>
-            <Card
-              tagLabel={['Typescript', 'Angular', 'RxJS'].join(' | ')}
-              createdDate='September 28, 2020'
-              timeLabel='10 Minutes'
-              label='State Management Trong Angular Với NgRx'
-              summary='State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…'
-            />
-          </Flex>
+
+          <ContentSection title='Programming' />
+          <ContentSection title='Cooking' />
         </Flex>
       </Container>
     </>
