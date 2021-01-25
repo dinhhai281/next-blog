@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { DropdownMenu, DropdownMenuProps } from '../DropdownMenu';
 
 export default {
@@ -7,9 +7,7 @@ export default {
   component: DropdownMenu,
 } as Meta;
 
-const Template: Story<DropdownMenuProps & { title?: string }> = ({ title, ...args }) => (
-  <DropdownMenu {...args}>{title}</DropdownMenu>
-);
+const Template: Story<DropdownMenuProps & { children: ReactNode }> = args => <DropdownMenu {...args} />;
 
 export const Primray = Template.bind({});
-Primray.args = { title: 'Songs', items: ['Plastic Love', 'Love Dramatic'] };
+Primray.args = { label: 'Songs', items: ['Plastic Love', 'Love Dramatic'] };

@@ -1,31 +1,45 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Popover,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverFooter,
-  PopoverTrigger,
-  Text,
-} from '@chakra-ui/react';
+import { Box, BoxProps, Button, Container, Spacer, Text } from '@chakra-ui/react';
+import { Link } from 'gatsby';
 import React, { FC } from 'react';
+
 import { DropdownMenu } from './DropdownMenu';
 
-export interface NavigationBarProps {
+export interface NavigationBarProps extends BoxProps {
   title: string;
 }
 
-export const NavigationBar: FC<NavigationBarProps> = ({ title }) => {
+export const NavigationBar: FC<NavigationBarProps> = ({ title, ...rest }) => {
   return (
-    <Box bg='whiteAlpha.900' py={6}>
-      <Container maxW={['full', '3xl']} h={10} d='flex' alignItems='center'>
-        <Text fontSize='4xl' color='blue.600' as='em' mr={6}>
+    <Box bg='white' py={6} {...rest}>
+      <Container maxW={['full', '6xl']} h={10} d='flex' alignItems='center'>
+        <Text fontSize='3xl' color='blue.600' mr={6} as={Link} to='/'>
           {title}
         </Text>
-        <DropdownMenu items={['Programming', 'Cooking', 'Gaming']}>Sections</DropdownMenu>
+        <Spacer />
+        <DropdownMenu items={['Programming', 'Cooking', 'Gaming']} label='Blogs' mr={4}>
+          {item => (
+            <Button
+              as={Link}
+              to={`/${item.toLowerCase()}`}
+              variant='ghost'
+              isFullWidth
+              justifyContent='flex-start'
+              h={12}
+            >
+              {item}
+            </Button>
+          )}
+        </DropdownMenu>
+        <Button variant='ghost' mr={4} as={Link} to='/about'>
+          <Text fontSize='lg' fontWeight={400}>
+            About Me
+          </Text>
+        </Button>
+        <Button variant='ghost' as={Link} to='/works'>
+          <Text fontSize='lg' fontWeight={400}>
+            My Work
+          </Text>
+        </Button>
       </Container>
     </Box>
   );

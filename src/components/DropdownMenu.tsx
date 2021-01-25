@@ -1,13 +1,26 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Button, Popover, PopoverBody, PopoverContent, PopoverTrigger, Text, useDisclosure } from '@chakra-ui/react';
-import React, { FC } from 'react';
+import {
+  Box,
+  Button,
+  ButtonProps,
+  Popover,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
+import React, { FC, ReactNode } from 'react';
+
 import { MotionBox } from './MotionBox';
 
-export interface DropdownMenuProps {
-  items?: string[];
+export interface DropdownMenuProps extends ButtonProps {
+  items?: any[];
+  label: string;
+  children: (props: any) => ReactNode;
 }
 
-export const DropdownMenu: FC<DropdownMenuProps> = ({ children, items = [] }) => {
+export const DropdownMenu: FC<DropdownMenuProps> = ({ children, label, items = [], ...rest }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -16,6 +29,9 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ children, items = [] }) =>
         <Button
           variant='ghost'
           iconSpacing={1}
+          as='div'
+          cursor='pointer'
+          {...rest}
           rightIcon={
             <MotionBox
               animate={{
@@ -27,16 +43,22 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ children, items = [] }) =>
           }
         >
           <Text fontSize='lg' fontWeight={400}>
-            {children}
+            {label}
           </Text>
         </Button>
       </PopoverTrigger>
       <PopoverContent>
         <PopoverBody>
           {items?.map(item => (
-            <Button key={item} variant='ghost' isFullWidth justifyContent='flex-start' h={12} onClick={onClose}>
-              {item}
-            </Button>
+            <Box key={item} onClick={onClose}>
+              {children ? (
+                children(item)
+              ) : (
+                <Button variant='ghost' isFullWidth justifyContent='flex-start' h={12}>
+                  {item}
+                </Button>
+              )}
+            </Box>
           ))}
         </PopoverBody>
       </PopoverContent>

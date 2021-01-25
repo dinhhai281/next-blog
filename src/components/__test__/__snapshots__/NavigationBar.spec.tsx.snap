@@ -3,28 +3,31 @@
 exports[`NavigationBar when render should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-frax8c"
+    class="css-1livzk2"
   >
     <div
       class="chakra-container css-fn4net"
     >
-      <em
-        class="chakra-text css-1i56fwb"
+      <a
+        class="chakra-text css-1oqmbt6"
+        href="/"
       >
         title
-      </em>
-      <button
+      </a>
+      <div
+        class="css-17xejub"
+      />
+      <div
         aria-controls="popover-content-2"
         aria-expanded="false"
         aria-haspopup="dialog"
-        class="chakra-button css-oqfhsh"
+        class="chakra-button css-2n9t6z"
         id="popover-trigger-2"
-        type="button"
       >
         <p
           class="chakra-text css-191iiyz"
         >
-          Sections
+          Blogs
         </p>
         <span
           class="chakra-button__icon css-6eepfv"
@@ -46,7 +49,7 @@ exports[`NavigationBar when render should match snapshot 1`] = `
             </svg>
           </div>
         </span>
-      </button>
+      </div>
       <div
         class="css-0"
         style="visibility: hidden; position: absolute; left: 0px; top: 0px;"
@@ -63,27 +66,59 @@ exports[`NavigationBar when render should match snapshot 1`] = `
             class="chakra-popover__body css-0"
             id="popover-body-2"
           >
-            <button
-              class="chakra-button css-1cgpak6"
-              type="button"
+            <div
+              class="css-0"
             >
-              Programming
-            </button>
-            <button
-              class="chakra-button css-1cgpak6"
-              type="button"
+              <a
+                class="chakra-button css-1cgpak6"
+                href="/programming"
+              >
+                Programming
+              </a>
+            </div>
+            <div
+              class="css-0"
             >
-              Cooking
-            </button>
-            <button
-              class="chakra-button css-1cgpak6"
-              type="button"
+              <a
+                class="chakra-button css-1cgpak6"
+                href="/cooking"
+              >
+                Cooking
+              </a>
+            </div>
+            <div
+              class="css-0"
             >
-              Gaming
-            </button>
+              <a
+                class="chakra-button css-1cgpak6"
+                href="/gaming"
+              >
+                Gaming
+              </a>
+            </div>
           </div>
         </section>
       </div>
+      <a
+        class="chakra-button css-1jsgjyb"
+        href="/about"
+      >
+        <p
+          class="chakra-text css-191iiyz"
+        >
+          About Me
+        </p>
+      </a>
+      <a
+        class="chakra-button css-oqfhsh"
+        href="/works"
+      >
+        <p
+          class="chakra-text css-191iiyz"
+        >
+          My Work
+        </p>
+      </a>
     </div>
   </div>
 </DocumentFragment>

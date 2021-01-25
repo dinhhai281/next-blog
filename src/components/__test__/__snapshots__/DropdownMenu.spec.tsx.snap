@@ -2,21 +2,16 @@
 
 exports[`DropdownMenu should match snapshot 1`] = `
 <DocumentFragment>
-  <button
+  <div
     aria-controls="popover-content-2"
     aria-expanded="false"
     aria-haspopup="dialog"
-    class="chakra-button css-oqfhsh"
+    class="chakra-button css-jt8z5c"
     id="popover-trigger-2"
-    type="button"
   >
     <p
       class="chakra-text css-191iiyz"
-    >
-      <span>
-        title
-      </span>
-    </p>
+    />
     <span
       class="chakra-button__icon css-6eepfv"
     >
@@ -37,7 +32,7 @@ exports[`DropdownMenu should match snapshot 1`] = `
         </svg>
       </div>
     </span>
-  </button>
+  </div>
   <div
     class="css-0"
     style="visibility: hidden; position: absolute; left: 0px; top: 0px;"

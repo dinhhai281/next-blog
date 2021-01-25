@@ -3,19 +3,63 @@
 exports[`Home render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-hpgf8j"
+    class="chakra-container css-3n56dt"
   >
-    <p
-      class="chakra-text css-0"
+    <main
+      class="css-1nwsnwk"
     >
-      Hello World
-    </p>
-    <button
-      class="chakra-button css-oqfhsh"
-      type="button"
-    >
-      Hello
-    </button>
+      <div
+        class="css-lzuhz1"
+      >
+        <p
+          class="chakra-text css-1hwj3aj"
+        >
+          Hello, I'm Hai Dinh Nguyen.
+        </p>
+      </div>
+      <div
+        class="css-17xejub"
+      />
+      <div
+        class="css-zvqp6p"
+      >
+        <p
+          class="chakra-text css-1efqfyl"
+        >
+          I'm a Software Engineer. I mostly do front-end development. I can work well with React and Angular, also a big fan of Functional Programming and Reactive Programming.
+        </p>
+      </div>
+      <div
+        class="css-3krwau"
+      >
+        <span
+          class="chakra-avatar css-wbs104"
+        >
+          <div
+            aria-label="Hai Nguyen"
+            class="chakra-avatar__initials css-0"
+          >
+            HN
+          </div>
+        </span>
+        <button
+          class="chakra-button css-q4uigm"
+          type="button"
+        >
+          <span
+            class="chakra-button__icon css-19u2hmv"
+          >
+            <img
+              alt="github logo"
+              aria-hidden="true"
+              class="chakra-image__placeholder css-1vx4smm"
+              focusable="false"
+            />
+          </span>
+          Github
+        </button>
+      </div>
+    </main>
   </div>
 </DocumentFragment>
 `;
