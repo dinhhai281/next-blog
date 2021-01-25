@@ -10,8 +10,6 @@
     "noUnusedLocals": false,
     "baseUrl": "src",
     "paths": {
-      "@utils/*": ["./utils/*"],
-      "@components/*": ["./components/*"],
       "@app/*": ["./*"]
     },
     "types": ["jest", "node"],
