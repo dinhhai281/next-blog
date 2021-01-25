@@ -1,13 +1,16 @@
 import { Affix, MotionBox } from '@app/components';
 import { Card } from '@app/components/Card';
+import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
 import React, { VFC } from 'react';
+import { subtract } from 'ramda';
 
 export interface ContentSectionProps {
   title: string;
+  posts: MarkdownRemark[];
 }
 
-export const ContentSection: VFC<ContentSectionProps> = ({ title }) => {
+export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
 
   return (
@@ -47,34 +50,18 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title }) => {
         )}
       </Affix>
 
-      <Card
-        tagLabel={['Typescript', 'Angular', 'RxJS'].join(' | ')}
-        createdDate='September 28, 2020'
-        timeLabel='10 Minutes'
-        label='State Management Trong Angular Với NgRx'
-        summary='State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…'
-      />
-      <Card
-        tagLabel={['Typescript', 'Angular', 'RxJS'].join(' | ')}
-        createdDate='September 28, 2020'
-        timeLabel='10 Minutes'
-        label='State Management Trong Angular Với NgRx'
-        summary='State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…'
-      />
-      <Card
-        tagLabel={['Typescript', 'Angular', 'RxJS'].join(' | ')}
-        createdDate='September 28, 2020'
-        timeLabel='10 Minutes'
-        label='State Management Trong Angular Với NgRx'
-        summary='State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…'
-      />
-      <Card
-        tagLabel={['Typescript', 'Angular', 'RxJS'].join(' | ')}
-        createdDate='September 28, 2020'
-        timeLabel='10 Minutes'
-        label='State Management Trong Angular Với NgRx'
-        summary='State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…'
-      />
+      {posts
+        .sort((a, b) => [b.frontmatter.date, a.frontmatter.date].map(Date.parse).reduce(subtract))
+        .map(({ frontmatter, id, excerpt }) => (
+          <Card
+            tagLabel={frontmatter.tags.split(',').join(' | ')}
+            createdDate={frontmatter.date}
+            timeLabel={`${frontmatter.duration} minutes`}
+            label={frontmatter.title}
+            summary={excerpt}
+            key={id}
+          ></Card>
+        ))}
     </Stack>
   );
 };

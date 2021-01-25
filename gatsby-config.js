@@ -18,19 +18,27 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-github-api',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        token: process.env.GITHUB_API_KEY,
-        graphQLQuery: `
-          query { 
-            viewer { 
-              login
-              name
-              avatarUrl
-              email
-            }
-        }`,
+        name: 'articles',
+        path: `${__dirname}/src/articles`,
       },
     },
+    'gatsby-transformer-remark',
+    // {
+    //   resolve: 'gatsby-source-github-api',
+    //   options: {
+    //     token: process.env.GITHUB_API_KEY,
+    //     graphQLQuery: `
+    //       query {
+    //         viewer {
+    //           login
+    //           name
+    //           avatarUrl
+    //           email
+    //         }
+    //     }`,
+    //   },
+    // },
   ],
 };

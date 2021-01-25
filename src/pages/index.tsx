@@ -1,28 +1,24 @@
 import { ContentSection } from '@app/blocks/home';
 import { SEO } from '@app/components';
 import { Avatar, Box, Button, Container, Flex, Image, Spacer, Text } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
 import { FormattedMessage } from 'gatsby-plugin-intl';
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 
 import githubLogo from '../../static/github.png';
 
-// import { graphql } from 'gatsby';
-// interface HomeProps {
-//   data: {
-//     allGithubData: {
-//       edges: {
-//         node: {
-//           data: GithubData;
-//         };
-//       };
-//     };
-//   };
-// }
+interface HomeProps {
+  data: {
+    allMarkdownRemark: {
+      nodes: any[];
+    };
+  };
+}
 
-const Home = () => {
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
+const Home: FC<HomeProps> = ({ data }) => {
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <>
@@ -58,8 +54,8 @@ const Home = () => {
             </Button>
           </Flex>
 
-          <ContentSection title='Programming' />
-          <ContentSection title='Cooking' />
+          <ContentSection title='Programming' posts={data.allMarkdownRemark.nodes} />
+          {/* <ContentSection title='Cooking' /> */}
         </Flex>
       </Container>
     </>
@@ -68,19 +64,21 @@ const Home = () => {
 
 export default Home;
 
-// export const query = graphql`
-//   query {
-//     allGithubData {
-//       edges {
-//         node {
-//           viewer {
-//             avatarUrl
-//             email
-//             login
-//             name
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          path
+          title
+          tags
+          featuredImage
+          date
+          duration
+        }
+        id
+        excerpt
+      }
+    }
+  }
+`;

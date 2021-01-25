@@ -13,7 +13,15 @@ describe('Home', () => {
       site: { siteMetadata: siteMetadataStub },
     }));
 
-    const { asFragment } = renderWithProviders(<Home></Home>);
+    const { asFragment } = renderWithProviders(
+      <Home
+        data={{
+          allMarkdownRemark: {
+            nodes: [],
+          },
+        }}
+      ></Home>,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
