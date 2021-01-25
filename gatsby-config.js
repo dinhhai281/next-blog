@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({
+    path: '.env',
+  });
+}
 module.exports = {
   siteMetadata: {
     title: 'Lorem',
@@ -8,6 +13,7 @@ module.exports = {
   plugins: [
     '@chakra-ui/gatsby-plugin',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-intl',
       options: {
@@ -24,21 +30,20 @@ module.exports = {
         path: `${__dirname}/src/articles`,
       },
     },
-    'gatsby-transformer-remark',
-    // {
-    //   resolve: 'gatsby-source-github-api',
-    //   options: {
-    //     token: process.env.GITHUB_API_KEY,
-    //     graphQLQuery: `
-    //       query {
-    //         viewer {
-    //           login
-    //           name
-    //           avatarUrl
-    //           email
-    //         }
-    //     }`,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-github-api',
+      options: {
+        token: process.env.GITHUB_API_KEY,
+        graphQLQuery: `
+          query {
+            viewer {
+              login
+              name
+              avatarUrl
+              email
+            }
+        }`,
+      },
+    },
   ],
 };

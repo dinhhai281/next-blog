@@ -1,25 +1,26 @@
 import { ContentSection } from '@app/blocks/home';
 import { SEO } from '@app/components';
+import { GithubData } from '@app/models';
+import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Avatar, Box, Button, Container, Flex, Image, Spacer, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'gatsby-plugin-intl';
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 import githubLogo from '../../static/github.png';
 
 interface HomeProps {
   data: {
     allMarkdownRemark: {
-      nodes: any[];
+      nodes: MarkdownRemark[];
+    };
+    allGithubData: {
+      nodes: GithubData[];
     };
   };
 }
 
 const Home: FC<HomeProps> = ({ data }) => {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <>
       <SEO title='Welcome' />
@@ -37,7 +38,10 @@ const Home: FC<HomeProps> = ({ data }) => {
             </Text>
           </Box>
           <Flex w={{ base: '100%' }} align='center'>
-            <Avatar name='Hai Nguyen' size='md' mr={6} />
+            <Avatar src={data.allGithubData.nodes[0].data.viewer.avatarUrl} size='md' mr={2} />\
+            <Text color='white' fontSize={['md', 'lg']}>
+              {data.allGithubData.nodes[0].data.viewer.name}
+            </Text>
             <Spacer />
             <Button
               variant='outline'
@@ -78,6 +82,18 @@ export const query = graphql`
         }
         id
         excerpt
+      }
+    }
+    allGithubData {
+      nodes {
+        data {
+          viewer {
+            avatarUrl
+            email
+            login
+            name
+          }
+        }
       }
     }
   }

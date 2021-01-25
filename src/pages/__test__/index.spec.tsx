@@ -19,6 +19,20 @@ describe('Home', () => {
           allMarkdownRemark: {
             nodes: [],
           },
+          allGithubData: {
+            nodes: [
+              {
+                data: {
+                  viewer: {
+                    avatarUrl: 'avatarUrl',
+                    email: 'email',
+                    login: 'login',
+                    name: 'name',
+                  },
+                },
+              },
+            ],
+          },
         }}
       ></Home>,
     );
