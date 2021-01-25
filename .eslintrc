@@ -21,7 +21,8 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "react"
+    "react",
+    "unused-imports"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -32,7 +33,13 @@
   },
   "rules": {
     "react/prop-types": "off",
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports-ts": "error",
+    "unused-imports/no-unused-vars-ts": [
+     "warn",
+     { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ]
   },
   "overrides": [
     {
@@ -43,6 +50,14 @@
         "*.jsx"
       ],
       "rules": {
+        "quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+          }
+        ],
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off"

@@ -14,7 +14,7 @@ exports[`Home render correctly 1`] = `
         <p
           class="chakra-text css-1hwj3aj"
         >
-          Hello, I'm Hai Dinh Nguyen.
+          home.greeting
         </p>
       </div>
       <div
@@ -26,7 +26,7 @@ exports[`Home render correctly 1`] = `
         <p
           class="chakra-text css-1efqfyl"
         >
-          I'm a Software Engineer. I mostly do front-end development. I can work well with React and Angular, also a big fan of Functional Programming and Reactive Programming.
+          home.intro
         </p>
       </div>
       <div
@@ -42,6 +42,9 @@ exports[`Home render correctly 1`] = `
             HN
           </div>
         </span>
+        <div
+          class="css-17xejub"
+        />
         <button
           class="chakra-button css-q4uigm"
           type="button"
@@ -58,6 +61,48 @@ exports[`Home render correctly 1`] = `
           </span>
           Github
         </button>
+      </div>
+      <div
+        class="css-zhmvqp"
+      >
+        <p
+          class="chakra-text css-1ydvzgk"
+        >
+          Programming
+        </p>
+        <div
+          class="chakra-stack css-n18ood"
+        >
+          <p
+            class="chakra-text css-wq3tlk"
+          >
+            Typescript | Angular | RxJS
+          </p>
+          <div
+            class="chakra-stack css-16xai34"
+          >
+            <p
+              class="chakra-text css-1e4oirs"
+            >
+              September 28, 2020
+            </p>
+            <p
+              class="chakra-text css-1e4oirs"
+            >
+              10 Minutes
+            </p>
+          </div>
+          <p
+            class="chakra-text css-1wqkak5"
+          >
+            State Management Trong Angular Với NgRx
+          </p>
+          <p
+            class="chakra-text css-1sjruip"
+          >
+            State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx…
+          </p>
+        </div>
       </div>
     </main>
   </div>

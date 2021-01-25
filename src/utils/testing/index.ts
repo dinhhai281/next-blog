@@ -6,3 +6,5 @@ export const siteMetadataStub: SiteMetadata = {
   description: 'description',
   keywords: ['1', '2'],
 };
+
+export * from './renderWithProviders';

@@ -1,5 +1,4 @@
-import { siteMetadataStub } from '@app/utils/testing';
-import { render } from '@testing-library/react';
+import { renderWithProviders, siteMetadataStub } from '@app/utils/testing';
 import { useStaticQuery } from 'gatsby';
 import Home from 'pages';
 import React from 'react';
@@ -10,7 +9,7 @@ describe('Home', () => {
       site: { siteMetadata: siteMetadataStub },
     }));
 
-    const { asFragment } = render(<Home></Home>);
+    const { asFragment } = renderWithProviders(<Home></Home>);
     expect(asFragment()).toMatchSnapshot();
   });
 });
