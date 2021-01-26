@@ -1,7 +1,7 @@
 ---
 path: "/setup-gatsby-with-typescript-tailwind-unit-test"
 date: "2020-07-25"
-title: "Cách blog này được tạo ra với GatsbyJS + Typescript + TailwindCSS"
+title: "Cách dựng một trang blog với GatsbyJS + Typescript + TailwindCSS"
 tags: "TYPESCRIPT,REACT,CSS"
 duration: 12
 featuredImage: ../images/setup-gatsby-typescript-tailwind/gatsby-featured.png

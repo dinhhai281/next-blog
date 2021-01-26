@@ -4,6 +4,7 @@ import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
 import React, { VFC } from 'react';
 import { subtract } from 'ramda';
+import { Link } from 'gatsby-plugin-intl';
 
 export interface ContentSectionProps {
   title: string;
@@ -14,8 +15,8 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
 
   return (
-    <Stack direction='column' py={4} spacing={4} mb={8}>
-      <Affix height={10}>
+    <Stack direction='column' py={4} spacing={4} mb={8} w={{ base: '100%', lg: '50%' }}>
+      <Affix height={10} d={{ md: 'none' }}>
         {isFixed => (
           <MotionBox
             px={isFixed ? 8 : 0}
@@ -60,6 +61,8 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
             label={frontmatter.title}
             summary={excerpt}
             key={id}
+            as={Link}
+            to={frontmatter.path}
           ></Card>
         ))}
     </Stack>
