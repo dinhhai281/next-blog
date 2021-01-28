@@ -4,6 +4,7 @@ import { FormattedMessage } from 'gatsby-plugin-intl';
 import React, { VFC } from 'react';
 
 import githubLogo from '../../../static/github.png';
+import { IndicatorSection } from './IndicatorSection';
 
 interface IntroSectionProps {
   githubData: GithubData;
@@ -34,6 +35,7 @@ export const IntroSection: VFC<IntroSectionProps> = ({ githubData }) => {
             </Text>
           </Box>
         </VStack>
+        <IndicatorSection />
         <Spacer />
         <Flex w={{ base: '100%' }} align='center' justify={{ base: 'space-between', lg: 'flex-start' }}>
           <Flex align='center' mr={{ base: 0, lg: 12 }}>
@@ -53,6 +55,9 @@ export const IntroSection: VFC<IntroSectionProps> = ({ githubData }) => {
               bg: 'gray.600',
               color: 'white',
             }}
+            as='a'
+            href={`https://github.com/${githubData.data.viewer.login}`}
+            target='__blank'
           >
             Github
           </Button>

@@ -2,9 +2,9 @@ import { Affix, MotionBox } from '@app/components';
 import { Card } from '@app/components/Card';
 import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
-import React, { VFC } from 'react';
-import { subtract } from 'ramda';
 import { Link } from 'gatsby-plugin-intl';
+import { subtract } from 'ramda';
+import React, { VFC } from 'react';
 
 export interface ContentSectionProps {
   title: string;
@@ -15,7 +15,7 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
 
   return (
-    <Stack direction='column' py={4} spacing={4} mb={8} w={{ base: '100%', lg: '50%' }}>
+    <Stack direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
       <Affix height={10} d={{ md: 'none' }}>
         {isFixed => (
           <MotionBox
@@ -50,6 +50,10 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
           </MotionBox>
         )}
       </Affix>
+
+      <Text d={{ base: 'none', md: 'flex' }} fontSize='2xl' color='white'>
+        {title}
+      </Text>
 
       {posts
         .sort((a, b) => [b.frontmatter.date, a.frontmatter.date].map(Date.parse).reduce(subtract))

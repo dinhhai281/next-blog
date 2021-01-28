@@ -39,6 +39,46 @@ exports[`Home render correctly 1`] = `
           </div>
         </div>
         <div
+          class="chakra-stack css-1v0omre"
+        >
+          <div
+            class="css-1ou45tu"
+          >
+            <p
+              class="chakra-text css-15ro776"
+            >
+              01
+            </p>
+            <div
+              class="css-1uylo8g"
+              style="width: 0px;"
+            />
+            <p
+              class="chakra-text css-0"
+            >
+              Programming
+            </p>
+          </div>
+          <div
+            class="css-1ou45tu"
+          >
+            <p
+              class="chakra-text css-15ro776"
+            >
+              02
+            </p>
+            <div
+              class="css-1uylo8g"
+              style="width: 0px;"
+            />
+            <p
+              class="chakra-text css-0"
+            >
+              Cooking
+            </p>
+          </div>
+        </div>
+        <div
           class="css-17xejub"
         />
         <div
@@ -72,9 +112,10 @@ exports[`Home render correctly 1`] = `
               name
             </p>
           </div>
-          <button
+          <a
             class="chakra-button css-q4uigm"
-            type="button"
+            href="https://github.com/login"
+            target="__blank"
           >
             <span
               class="chakra-button__icon css-19u2hmv"
@@ -87,24 +128,55 @@ exports[`Home render correctly 1`] = `
               />
             </span>
             Github
-          </button>
+          </a>
         </div>
       </div>
       <div
-        class="chakra-stack css-1j3oiwi"
+        class="chakra-stack css-1qnm4hx"
       >
         <div
-          class="css-6ps0cc"
+          class="chakra-stack css-1iiocrw"
         >
           <div
-            class="css-175wqfc"
+            class="css-6ps0cc"
           >
-            <p
-              class="chakra-text css-1pc31l6"
+            <div
+              class="css-175wqfc"
             >
-              Programming
-            </p>
+              <p
+                class="chakra-text css-1pc31l6"
+              >
+                Programming
+              </p>
+            </div>
           </div>
+          <p
+            class="chakra-text css-e7y85d"
+          >
+            Programming
+          </p>
+        </div>
+        <div
+          class="chakra-stack css-1iiocrw"
+        >
+          <div
+            class="css-6ps0cc"
+          >
+            <div
+              class="css-175wqfc"
+            >
+              <p
+                class="chakra-text css-1pc31l6"
+              >
+                Cooking
+              </p>
+            </div>
+          </div>
+          <p
+            class="chakra-text css-e7y85d"
+          >
+            Cooking
+          </p>
         </div>
       </div>
     </main>
