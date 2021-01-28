@@ -1,11 +1,41 @@
-import { render } from '@testing-library/react';
+import { renderWithProviders, setupIntersectionObserverMock, siteMetadataStub } from '@app/utils/testing';
+import { useStaticQuery } from 'gatsby';
 import Home from 'pages';
 import React from 'react';
 
 describe('Home', () => {
-  it('render correctly', () => {
-    const { asFragment } = render(<Home></Home>);
+  beforeAll(() => {
+    setupIntersectionObserverMock();
+  });
 
+  it('render correctly', () => {
+    (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
+      site: { siteMetadata: siteMetadataStub },
+    }));
+
+    const { asFragment } = renderWithProviders(
+      <Home
+        data={{
+          allMarkdownRemark: {
+            nodes: [],
+          },
+          allGithubData: {
+            nodes: [
+              {
+                data: {
+                  viewer: {
+                    avatarUrl: 'avatarUrl',
+                    email: 'email',
+                    login: 'login',
+                    name: 'name',
+                  },
+                },
+              },
+            ],
+          },
+        }}
+      ></Home>,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

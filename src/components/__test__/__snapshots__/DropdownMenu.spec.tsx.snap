@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownMenu should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-controls="popover-content-2"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    class="chakra-button css-jt8z5c"
+    id="popover-trigger-2"
+  >
+    <p
+      class="chakra-text css-191iiyz"
+    />
+    <span
+      class="chakra-button__icon css-6eepfv"
+    >
+      <div
+        aria-hidden="true"
+        class="css-0"
+        focusable="false"
+      >
+        <svg
+          class="chakra-icon css-w31a5m"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </span>
+  </div>
+  <div
+    class="css-0"
+    style="visibility: hidden; position: absolute; left: 0px; top: 0px;"
+  >
+    <section
+      aria-describedby="popover-body-2"
+      class="chakra-popover__content css-1ab1jlb"
+      id="popover-content-2"
+      role="tooltip"
+      style="transform-origin: top center; opacity: 0; visibility: hidden; transform: scale(0.95) translateZ(0);"
+      tabindex="-1"
+    >
+      <div
+        class="chakra-popover__body css-0"
+        id="popover-body-2"
+      />
+    </section>
+  </div>
+</DocumentFragment>
+`;

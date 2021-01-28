@@ -3,15 +3,14 @@
     "module": "CommonJS",
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "strict": true,
     "noEmit": true,
     "noUnusedLocals": false,
     "baseUrl": "src",
     "paths": {
-      "@utils/*": ["./utils/*"],
-      "@components/*": ["./components/*"],
+      "@app/*": ["./*"]
     },
     "types": ["jest", "node"],
   },
