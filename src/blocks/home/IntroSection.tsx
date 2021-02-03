@@ -8,9 +8,10 @@ import { IndicatorSection } from './IndicatorSection';
 
 interface IntroSectionProps {
   githubData: GithubData;
+  activeKey: string;
 }
 
-export const IntroSection: VFC<IntroSectionProps> = ({ githubData }) => {
+export const IntroSection: VFC<IntroSectionProps> = ({ githubData, activeKey }) => {
   return (
     <>
       <Box h='calc(100vh - 2.5rem)' w={{ base: '50%' }} d={{ base: 'none', lg: 'block' }}>
@@ -35,7 +36,7 @@ export const IntroSection: VFC<IntroSectionProps> = ({ githubData }) => {
             </Text>
           </Box>
         </VStack>
-        <IndicatorSection />
+        <IndicatorSection activeKey={activeKey} />
         <Spacer />
         <Flex w={{ base: '100%' }} align='center' justify={{ base: 'space-between', lg: 'flex-start' }}>
           <Flex align='center' mr={{ base: 0, lg: 12 }}>

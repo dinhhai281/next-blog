@@ -1,16 +1,16 @@
 import { Flex, useToken } from '@chakra-ui/react';
 import { MotionBox, MotionText } from '@app/components';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import { Variants } from 'framer-motion';
 
 interface IndicatorItemProps {
   index: number;
   label: string;
+  isActive: boolean;
 }
 
-export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label }) => {
+export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label, isActive }) => {
   const [gray500, white] = useToken('colors', ['gray.500', 'white']);
-  const [isActive, setIsActive] = useState(false);
   const resolveVariant = useCallback((isActive: boolean) => (isActive ? 'active' : 'inactive'), []);
   const variants: Variants = {
     active: {
@@ -31,16 +31,8 @@ export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label }) => {
     },
   };
 
-  const handleMouseEnter = () => {
-    setIsActive(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsActive(false);
-  };
-
   return (
-    <Flex color='gray.300' w='100%' align='center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Flex color='gray.300' w='100%' align='center'>
       <MotionText mr={4} variants={textVariants} animate={resolveVariant(isActive)}>
         {index.toLocaleString('en-US', {
           minimumIntegerDigits: 2,

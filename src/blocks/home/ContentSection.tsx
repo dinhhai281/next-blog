@@ -1,21 +1,50 @@
 import { Affix, MotionBox } from '@app/components';
 import { Card } from '@app/components/Card';
+import { useVerticalOffset } from '@app/contexts';
 import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
 import { Link } from 'gatsby-plugin-intl';
 import { subtract } from 'ramda';
-import React, { VFC } from 'react';
+import React, { useEffect, useRef, useState, VFC } from 'react';
 
 export interface ContentSectionProps {
   title: string;
   posts: MarkdownRemark[];
+  onActive?: (key: string) => void;
 }
 
-export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
+export const ContentSection: VFC<ContentSectionProps> = ({ title, posts, onActive }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
+  const titleRef = useRef<HTMLParagraphElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const verticalOffset = useVerticalOffset();
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    if (
+      sectionRef.current?.offsetHeight &&
+      titleRef.current?.offsetTop &&
+      isActive &&
+      (verticalOffset >= sectionRef.current?.offsetHeight + titleRef.current?.offsetTop ||
+        verticalOffset <= titleRef.current.offsetTop)
+    ) {
+      setIsActive(false);
+    }
+
+    if (
+      sectionRef.current?.offsetHeight &&
+      titleRef.current?.offsetTop &&
+      verticalOffset >= titleRef.current?.offsetTop - 64 &&
+      verticalOffset < sectionRef.current?.offsetHeight + titleRef.current?.offsetTop &&
+      !isActive
+    ) {
+      onActive?.(title);
+      setIsActive(true);
+    }
+  }, [verticalOffset]);
 
   return (
-    <Stack direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
+    <Stack ref={sectionRef} direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
       <Affix height={10} d={{ md: 'none' }}>
         {isFixed => (
           <MotionBox
@@ -51,7 +80,7 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts }) => {
         )}
       </Affix>
 
-      <Text d={{ base: 'none', md: 'flex' }} fontSize='2xl' color='white'>
+      <Text d={{ base: 'none', md: 'flex' }} fontSize='2xl' color='white' ref={titleRef}>
         {title}
       </Text>
 
