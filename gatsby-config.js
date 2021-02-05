@@ -13,7 +13,9 @@ module.exports = {
   plugins: [
     '@chakra-ui/gatsby-plugin',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-intl',
       options: {
@@ -31,6 +33,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: 'gatsby-source-github-api',
       options: {
         token: process.env.GITHUB_API_KEY,
@@ -43,6 +52,19 @@ module.exports = {
               email
             }
         }`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
   ],

@@ -50,7 +50,6 @@ export const query = graphql`
           path
           title
           tags
-          featuredImage
           date
           duration
         }
