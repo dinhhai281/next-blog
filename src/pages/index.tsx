@@ -1,6 +1,5 @@
 import { ContentSection, IntroSection } from '@app/blocks/home';
 import { SEO } from '@app/components';
-import { VerticalOffsetProvider } from '@app/contexts';
 import { GithubData } from '@app/models';
 import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Container, Stack, VStack } from '@chakra-ui/react';
@@ -22,8 +21,7 @@ const Home: FC<HomeProps> = ({ data }) => {
   const [activeKey, secActiveKey] = useState('');
 
   return (
-    <VerticalOffsetProvider>
-      {/* <ActiveSectionProvider> */}
+    <>
       <SEO title='Welcome' />
       <Container maxW='100%' px={[8]} py={{ base: 4, lg: 12 }} minH='100vh' background='gray.900' centerContent>
         <Stack as='main' direction={{ base: 'column', lg: 'row' }} spacing={0} maxW='7xl' w='100%'>
@@ -35,8 +33,7 @@ const Home: FC<HomeProps> = ({ data }) => {
           </VStack>
         </Stack>
       </Container>
-      {/* </ActiveSectionProvider> */}
-    </VerticalOffsetProvider>
+    </>
   );
 };
 
@@ -50,7 +47,6 @@ export const query = graphql`
           path
           title
           tags
-          featuredImage
           date
           duration
         }
