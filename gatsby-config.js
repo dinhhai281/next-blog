@@ -4,6 +4,7 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 module.exports = {
+  pathPrefix: '/next-blog',
   siteMetadata: {
     title: 'Lorem',
     author: 'Hai Nguyen',

@@ -14,13 +14,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
 
     - name: Unit Test
-      run: yarn test
+      run: yarn run test
 
     - name: Lint
-      run: yarn lint
+      run: yarn run lint
 
   build:
     runs-on: ubuntu-latest
@@ -29,9 +29,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
 
     - name: Build
-      run: yarn build
+      run: npm run build
       env:
         GITHUB_API_KEY: ${{secrets.BLOG_GITHUB_API_KEY}}

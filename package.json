@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:prefix": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -14,7 +15,8 @@
     "test": "jest --verbose --silent",
     "lint": "eslint --ext ts --ext tsx --ext  js --ext jsx",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "gh-pages -d public -r \"https://$DEPLOY_ACTOR:$DEPLOY_ACCESS_TOKEN@github.com/$DEPLOY_ACTOR/blog.git\" -u \"Hai Nguyen <$DEPLOY_EMAIL>\""
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^1.0.1",
