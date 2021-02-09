@@ -52,6 +52,15 @@ interface InnerContentSectionProps extends ContentSectionProps {
 
 const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRef, sectionRef, title, posts, onActive }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
+  const [focusId, setFocusId] = useState<string | null>(null);
+
+  const handleCardFocusIn = (id: string) => () => {
+    setFocusId(id);
+  }
+
+  const handleCardFocusOut = () => {
+    setFocusId(null);
+  }
 
   return (
     <Stack ref={sectionRef} direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
@@ -106,6 +115,9 @@ const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRe
             key={id}
             as={Link}
             to={frontmatter.path}
+            onFocusIn={handleCardFocusIn(id)}
+            onFocusOut={handleCardFocusOut}
+            isFocus={focusId === null ? focusId : focusId === id}
           ></Card>
         ))}
     </Stack>
