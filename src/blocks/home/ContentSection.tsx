@@ -5,7 +5,7 @@ import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
 import { Link } from 'gatsby-plugin-intl';
 import { subtract } from 'ramda';
-import React, { useEffect, useRef, useState, VFC } from 'react';
+import React, { RefObject, useEffect, useRef, useState, VFC } from 'react';
 
 export interface ContentSectionProps {
   title: string;
@@ -13,12 +13,11 @@ export interface ContentSectionProps {
   onActive?: (key: string) => void;
 }
 
-export const ContentSection: VFC<ContentSectionProps> = ({ title, posts, onActive }) => {
-  const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
-  const titleRef = useRef<HTMLParagraphElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+export const ContentSection: VFC<ContentSectionProps> = ({ onActive, ...rest }) => {
   const verticalOffset = useVerticalOffset();
   const [isActive, setIsActive] = useState(false);
+  const titleRef = useRef<HTMLParagraphElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (
@@ -38,10 +37,30 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts, onActiv
       verticalOffset < sectionRef.current?.offsetHeight + titleRef.current?.offsetTop &&
       !isActive
     ) {
-      onActive?.(title);
+      onActive?.(rest.title);
       setIsActive(true);
     }
   }, [verticalOffset]);
+
+  return <InnerContentSection {...rest} titleRef={titleRef} sectionRef={sectionRef} />;
+};
+
+interface InnerContentSectionProps extends ContentSectionProps {
+  titleRef: RefObject<HTMLParagraphElement>;
+  sectionRef: RefObject<HTMLDivElement>;
+}
+
+const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRef, sectionRef, title, posts, onActive }) => {
+  const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
+  const [focusId, setFocusId] = useState<string | null>(null);
+
+  const handleCardFocusIn = (id: string) => () => {
+    setFocusId(id);
+  }
+
+  const handleCardFocusOut = () => {
+    setFocusId(null);
+  }
 
   return (
     <Stack ref={sectionRef} direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
@@ -96,8 +115,11 @@ export const ContentSection: VFC<ContentSectionProps> = ({ title, posts, onActiv
             key={id}
             as={Link}
             to={frontmatter.path}
+            onFocusIn={handleCardFocusIn(id)}
+            onFocusOut={handleCardFocusOut}
+            isFocus={focusId === null ? focusId : focusId === id}
           ></Card>
         ))}
     </Stack>
   );
-};
+});

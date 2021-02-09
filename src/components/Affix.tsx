@@ -30,6 +30,10 @@ export const Affix: FC<AffixProps> = ({ children, topOffset = 0, height, ...rest
     };
   }, []);
 
+  useEffect(() => {
+    console.log(isFixed);
+  }, [isFixed]);
+
   return (
     <Box ref={boxRef} {...rest}>
       {isFixed && <Box h={height} />}
