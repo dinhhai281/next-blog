@@ -1,3 +1,4 @@
+import { contramap, ordNumber } from 'fp-ts/lib/Ord';
 import { FluidObject, FixedObject } from 'gatsby-image';
 
 export interface MarkdownRemark {
@@ -18,3 +19,7 @@ export interface MarkdownRemark {
     duration: string;
   };
 }
+
+export const byDate = contramap((markdownRemark: MarkdownRemark) => Date.parse(markdownRemark.frontmatter.date))(
+  ordNumber,
+);
