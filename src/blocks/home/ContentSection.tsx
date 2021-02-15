@@ -1,10 +1,14 @@
 import { Affix, MotionBox } from '@app/components';
 import { Card } from '@app/components/Card';
 import { useVerticalOffset } from '@app/contexts';
-import { MarkdownRemark } from '@app/models/MarkdownRemark';
+import { byDate, MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Stack, Text, useToken } from '@chakra-ui/react';
-import { Link } from 'gatsby-plugin-intl';
-import { subtract } from 'ramda';
+import { map } from 'fp-ts/lib/Array';
+import { sort } from 'fp-ts/lib/Array';
+import { some, none } from 'fp-ts/lib/Option';
+import { getDualOrd } from 'fp-ts/lib/Ord';
+import { pipe } from 'fp-ts/lib/pipeable';
+import { Link, useIntl } from 'gatsby-plugin-intl';
 import React, { RefObject, useEffect, useRef, useState, VFC } from 'react';
 
 export interface ContentSectionProps {
@@ -50,17 +54,18 @@ interface InnerContentSectionProps extends ContentSectionProps {
   sectionRef: RefObject<HTMLDivElement>;
 }
 
-const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRef, sectionRef, title, posts, onActive }) => {
+const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRef, sectionRef, title, posts }) => {
   const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
   const [focusId, setFocusId] = useState<string | null>(null);
+  const intl = useIntl();
 
   const handleCardFocusIn = (id: string) => () => {
     setFocusId(id);
-  }
+  };
 
   const handleCardFocusOut = () => {
     setFocusId(null);
-  }
+  };
 
   return (
     <Stack ref={sectionRef} direction='column' py={{ base: 4, lg: 0 }} spacing={4} mb={{ base: 8, md: 2 }} w='100%'>
@@ -103,13 +108,14 @@ const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRe
         {title}
       </Text>
 
-      {posts
-        .sort((a, b) => [b.frontmatter.date, a.frontmatter.date].map(Date.parse).reduce(subtract))
-        .map(({ frontmatter, id, excerpt }) => (
+      {pipe(
+        posts,
+        sort(getDualOrd(byDate)),
+        map(({ frontmatter, id, excerpt }) => (
           <Card
             tagLabel={frontmatter.tags.split(',').join(' | ')}
             createdDate={frontmatter.date}
-            timeLabel={`${frontmatter.duration} minutes`}
+            timeLabel={intl.formatMessage({ id: 'home.minutes' }, { value: frontmatter.duration })}
             label={frontmatter.title}
             summary={excerpt}
             key={id}
@@ -117,9 +123,10 @@ const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRe
             to={frontmatter.path}
             onFocusIn={handleCardFocusIn(id)}
             onFocusOut={handleCardFocusOut}
-            isFocus={focusId === null ? focusId : focusId === id}
-          ></Card>
-        ))}
+            isFocus={focusId === null ? none : some(focusId === id)}
+          />
+        )),
+      )}
     </Stack>
   );
 });

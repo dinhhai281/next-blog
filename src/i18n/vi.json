@@ -1,6 +1,10 @@
 {
   "home": {
-    "greeting": "Hello, I'm Hai Dinh Nguyen",
-    "intro": "I'm a Software Engineer. I mostly do front-end development. I can work well with React and Angular, also a big fan of Functional Programming and Reactive Programming."
+    "greeting": "Góc của Hải",
+    "intro": "Xin chào, mình là Hải. Đây là nơi mình chia sẽ các bài viết về lập trình, nấu ăn và gamming, còn viết khi nào thì tuỳ hứng",
+    "programming": "Programming",
+    "cooking": "Cooking",
+    "minutes": "{value} phút"
   }
+
 }

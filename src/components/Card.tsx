@@ -1,6 +1,8 @@
 import { Text, VStack, StackProps, forwardRef } from '@chakra-ui/react';
+import { fold, Option } from 'fp-ts/lib/Option';
+import { pipe } from 'fp-ts/lib/pipeable';
 import { Variants } from 'framer-motion';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { MotionBox } from '.';
 
 export interface CardProps extends StackProps {
@@ -11,7 +13,7 @@ export interface CardProps extends StackProps {
   summary: string;
   onFocusIn: VoidFunction;
   onFocusOut: VoidFunction;
-  isFocus: boolean | null;
+  isFocus: Option<boolean>;
 }
 
 export const Card = forwardRef<CardProps, 'div'>(
@@ -25,10 +27,23 @@ export const Card = forwardRef<CardProps, 'div'>(
       },
       none: {
         scale: 1,
-      }
-    }
+      },
+    };
+
+    const resolveAnimate = useMemo(
+      () =>
+        pipe(
+          isFocus,
+          fold(
+            () => 'none',
+            value => (value ? 'active' : 'inactive'),
+          ),
+        ),
+      [isFocus],
+    );
+
     return (
-      <MotionBox variants={variants} animate={isFocus === null ? 'none' : isFocus ? 'active' : 'inactive'}>
+      <MotionBox variants={variants} animate={resolveAnimate}>
         <VStack
           p={10}
           bg='gray.800'

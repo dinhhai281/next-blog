@@ -64,3 +64,9 @@
     margin-bottom: -.46em;
   }
 }
+
+@media print {
+  .print-container {
+    padding: 0 !important;
+  }
+}

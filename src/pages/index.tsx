@@ -4,6 +4,7 @@ import { GithubData } from '@app/models';
 import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { Container, Stack, VStack } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 import React, { FC, useState } from 'react';
 
 interface HomeProps {
@@ -19,6 +20,7 @@ interface HomeProps {
 
 const Home: FC<HomeProps> = ({ data }) => {
   const [activeKey, secActiveKey] = useState('');
+  const intl = useIntl();
 
   return (
     <>
@@ -28,8 +30,16 @@ const Home: FC<HomeProps> = ({ data }) => {
           <IntroSection githubData={data.allGithubData.nodes[0]} activeKey={activeKey} />
 
           <VStack w={{ base: '100%', lg: '50%' }}>
-            <ContentSection title='Programming' posts={data.allMarkdownRemark.nodes} onActive={secActiveKey} />
-            <ContentSection title='Cooking' posts={data.allMarkdownRemark.nodes} onActive={secActiveKey} />
+            <ContentSection
+              title={intl.formatMessage({ id: 'home.programming' })}
+              posts={data.allMarkdownRemark.nodes}
+              onActive={secActiveKey}
+            />
+            <ContentSection
+              title={intl.formatMessage({ id: 'home.cooking' })}
+              posts={data.allMarkdownRemark.nodes}
+              onActive={secActiveKey}
+            />
           </VStack>
         </Stack>
       </Container>

@@ -146,14 +146,14 @@ exports[`Home render correctly 1`] = `
               <p
                 class="chakra-text css-1pc31l6"
               >
-                Programming
+                home.programming
               </p>
             </div>
           </div>
           <p
             class="chakra-text css-e7y85d"
           >
-            Programming
+            home.programming
           </p>
         </div>
         <div
@@ -168,14 +168,14 @@ exports[`Home render correctly 1`] = `
               <p
                 class="chakra-text css-1pc31l6"
               >
-                Cooking
+                home.cooking
               </p>
             </div>
           </div>
           <p
             class="chakra-text css-e7y85d"
           >
-            Cooking
+            home.cooking
           </p>
         </div>
       </div>
