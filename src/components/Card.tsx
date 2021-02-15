@@ -27,13 +27,20 @@ export const Card = forwardRef<CardProps, 'div'>(
       },
       none: {
         scale: 1,
-      }
-    }
+      },
+    };
 
-    const resolveAnimate = useMemo(() => pipe(
-      isFocus,
-      fold(() => 'none', value => value ? 'active' : 'inactive')
-    ), [isFocus])
+    const resolveAnimate = useMemo(
+      () =>
+        pipe(
+          isFocus,
+          fold(
+            () => 'none',
+            value => (value ? 'active' : 'inactive'),
+          ),
+        ),
+      [isFocus],
+    );
 
     return (
       <MotionBox variants={variants} animate={resolveAnimate}>
