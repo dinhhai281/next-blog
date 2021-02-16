@@ -9,7 +9,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import format from 'date-fns/format';
 import { useVerticalOffset } from '@app/contexts';
 import { Variants } from 'framer-motion';
-import { Link } from 'gatsby-plugin-intl';
+import { FormattedMessage, Link } from 'gatsby-plugin-intl';
 
 export interface BlogPostProps {
   data: {
@@ -49,33 +49,43 @@ const BlogPost: FC<BlogPostProps> = ({ data }) => {
   return (
     <>
       <SEO title={data.markdownRemark.frontmatter.title} />
-      <Flex w='100%' justify='center'>
-        <VStack px={8} py={24} w='100%' maxW='4xl'>
-          <Text w='100%' textAlign='center' fontSize='6xl' fontWeight='700' mb={8} color='gray.700'>
+      <Flex w='100%' justify='center' bgGradient='linear(to-r,  #fc5c7d, #6a82fb)' py={4}>
+        <VStack
+          px={8}
+          py={24}
+          w='100%'
+          maxW='6xl'
+          bgGradient='linear(to-br, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2))'
+          borderRadius='2rem'
+        >
+          <Text w='75%' textAlign='center' fontSize='6xl' fontWeight='700' mb={8} color='gray.700'>
             {data.markdownRemark.frontmatter.title}
           </Text>
-          <Box width='150%' mt={8} mb={8} maxW='1200px'>
+          <Box width='100%' mt={8} mb={8}>
             <Img alt='featured-image' fluid={data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid} />
           </Box>
-          <HStack w='100%'>
+          <HStack w='65%'>
             <MotionBox
               d='flex'
               flexDirection='column'
               pos='fixed'
               top={12}
-              left='calc((100vw - 1200px) / 2 + .5rem)'
-              width='calc((1200px - 896px) / 2 - 16px)'
+              p={4}
+              borderRadius='1rem'
+              left='calc((100vw - 1156px) / 2 + .5rem)'
+              width='calc((1200px - 816px) / 2 - 16px)'
+              bgGradient='linear(to-br, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2))'
               variants={variants}
               animate={isSidebarVisible ? 'active' : 'inactive'}
             >
               <Text color='pink.700' mb={4} fontSize='lg' fontWeight='600'>
-                Hai Nguyen&apos;s Blog
+                <FormattedMessage id='home.greeting' />
               </Text>
               <Text fontSize='sm' mb={2} color='gray.800'>
                 Get better on coding, cooking and gamming everyday.
               </Text>
-              <Divider />
-              <Button as={Link} to='/' mt={4}>
+              <Divider borderColor='brand.0' />
+              <Button as={Link} to='/' mt={4} boxShadow='6px 6px 20px rgba(122, 122, 122, 0.2)'>
                 Back
               </Button>
             </MotionBox>
@@ -104,7 +114,7 @@ const BlogPost: FC<BlogPostProps> = ({ data }) => {
           <Box
             className='article'
             data-testid='post-content'
-            w='100%'
+            w='65%'
             dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
           ></Box>
         </VStack>

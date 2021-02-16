@@ -10,7 +10,7 @@ interface IndicatorItemProps {
 }
 
 export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label, isActive }) => {
-  const [gray500, white] = useToken('colors', ['gray.500', 'white']);
+  const [gray, white] = useToken('colors', ['gray.400', 'white']);
   const resolveVariant = useCallback((isActive: boolean) => (isActive ? 'active' : 'inactive'), []);
   const variants: Variants = {
     active: {
@@ -19,7 +19,7 @@ export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label, isActive }
     },
     inactive: {
       width: '1.5rem',
-      backgroundColor: gray500,
+      backgroundColor: gray,
     },
   };
   const textVariants: Variants = {
@@ -27,12 +27,12 @@ export const IndicatorItem: FC<IndicatorItemProps> = ({ index, label, isActive }
       color: white,
     },
     inactive: {
-      color: gray500,
+      color: gray,
     },
   };
 
   return (
-    <Flex color='gray.300' w='100%' align='center'>
+    <Flex w='100%' align='center'>
       <MotionText mr={4} variants={textVariants} animate={resolveVariant(isActive)}>
         {index.toLocaleString('en-US', {
           minimumIntegerDigits: 2,

@@ -45,10 +45,11 @@ export const Card = forwardRef<CardProps, 'div'>(
     return (
       <MotionBox variants={variants} animate={resolveAnimate}>
         <VStack
+          style={{ backdropFilter: 'blur(2rem)' }}
           p={10}
-          bg='gray.800'
+          bgGradient='linear(to-br, rgba(22, 34, 42, 0.6), rgba(22, 34, 42, 0.3))'
           align='flex-start'
-          borderRadius={4}
+          borderRadius={8}
           {...rest}
           ref={ref}
           onMouseEnter={onFocusIn}
