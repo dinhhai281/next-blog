@@ -3,7 +3,7 @@
 exports[`Home render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-container css-76uqdy"
+    class="chakra-container css-112di8d"
   >
     <main
       class="chakra-stack css-1ok2rpt"
@@ -32,7 +32,7 @@ exports[`Home render correctly 1`] = `
             class="css-zvqp6p"
           >
             <p
-              class="chakra-text css-1efqfyl"
+              class="chakra-text css-1hy3tbn"
             >
               home.intro
             </p>
@@ -42,7 +42,7 @@ exports[`Home render correctly 1`] = `
           class="chakra-stack css-18exjiu"
         >
           <div
-            class="css-1ou45tu"
+            class="css-7pf6at"
           >
             <p
               class="chakra-text css-15ro776"
@@ -56,11 +56,11 @@ exports[`Home render correctly 1`] = `
             <p
               class="chakra-text css-0"
             >
-              Programming
+              home.programming
             </p>
           </div>
           <div
-            class="css-1ou45tu"
+            class="css-7pf6at"
           >
             <p
               class="chakra-text css-15ro776"
@@ -74,7 +74,7 @@ exports[`Home render correctly 1`] = `
             <p
               class="chakra-text css-0"
             >
-              Cooking
+              home.cooking
             </p>
           </div>
         </div>
@@ -105,7 +105,6 @@ exports[`Home render correctly 1`] = `
                 />
               </svg>
             </span>
-            \\
             <p
               class="chakra-text css-1xw9rkq"
             >
@@ -113,7 +112,7 @@ exports[`Home render correctly 1`] = `
             </p>
           </div>
           <a
-            class="chakra-button css-q4uigm"
+            class="chakra-button css-nv1q6g"
             href="https://github.com/login"
             target="__blank"
           >

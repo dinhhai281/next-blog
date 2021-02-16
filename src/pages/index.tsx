@@ -25,7 +25,14 @@ const Home: FC<HomeProps> = ({ data }) => {
   return (
     <>
       <SEO title='Welcome' />
-      <Container maxW='100%' px={[8]} py={{ base: 4, lg: 12 }} minH='100vh' background='gray.900' centerContent>
+      <Container
+        maxW='100%'
+        px={[8]}
+        py={{ base: 4, lg: 12 }}
+        minH='100vh'
+        bgGradient='linear(to-r,   #16222a, #3a6073)'
+        centerContent
+      >
         <Stack as='main' direction={{ base: 'column', lg: 'row' }} spacing={0} maxW='7xl' w='100%'>
           <IntroSection githubData={data.allGithubData.nodes[0]} activeKey={activeKey} />
 
