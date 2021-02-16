@@ -9,6 +9,7 @@ module.exports = {
     author: 'Hai Nguyen',
     description: "Hai's Personal Blog",
     keywords: ['Blog', 'React', 'Angular', 'Javascript', 'Typescript', 'Functional Programming'],
+    siteUrl: 'https://haidnguyen.dev',
   },
   plugins: [
     '@chakra-ui/gatsby-plugin',
@@ -16,6 +17,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-intl',
       options: {

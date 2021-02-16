@@ -5,7 +5,7 @@ import { Box, Flex, Grid, GridItem, Icon, Text, VStack } from '@chakra-ui/react'
 import React from 'react';
 import { GitHub } from 'react-feather';
 
-import sampleImg from '../../static/sample-avatar.jpg';
+import picture from '../../static/1606668897858.jpg';
 
 const CV = () => {
   return (
@@ -36,7 +36,7 @@ const CV = () => {
                     top: '0',
                     left: '0',
                     pos: 'absolute',
-                    backgroundImage: `url(${sampleImg})`,
+                    backgroundImage: `url(${picture})`,
                     backgroundSize: 'cover',
                     transform: 'rotate(-45deg)',
                     borderRadius: '2.3rem',
