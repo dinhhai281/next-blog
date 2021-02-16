@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://haidnguyen.dev/first-class-observable-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/first-class-observable-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/first-class-observable-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/setup-wsl2-for-web-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/setup-wsl2-for-web-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/setup-wsl2-for-web-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/setup-gatsby-with-typescript-tailwind-unit-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/setup-gatsby-with-typescript-tailwind-unit-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/setup-gatsby-with-typescript-tailwind-unit-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/state-management-with-ngrx-in-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/state-management-with-ngrx-in-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/state-management-with-ngrx-in-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/404/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/404/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/cv/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/cv/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/cv/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/en/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://haidnguyen.dev/vi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
