@@ -2,7 +2,7 @@ import { MotionBox, SEO } from '@app/components';
 import { GithubData } from '@app/models';
 import { MarkdownRemark } from '@app/models/MarkdownRemark';
 import { CalendarIcon } from '@chakra-ui/icons';
-import { Box, VStack, Flex, Avatar, Text, HStack, Button, Divider } from '@chakra-ui/react';
+import { Box, VStack, Flex, Avatar, Text, Button, Divider, Stack } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React, { FC, useEffect, useRef, useState } from 'react';
@@ -52,19 +52,26 @@ const BlogPost: FC<BlogPostProps> = ({ data }) => {
       <Flex w='100%' justify='center' bgGradient='linear(to-r,  #fc5c7d, #6a82fb)' py={4}>
         <VStack
           px={8}
-          py={24}
+          py={{ base: 12, lg: 24 }}
           w='100%'
           maxW='6xl'
           bgGradient='linear(to-br, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2))'
           borderRadius='2rem'
         >
-          <Text w='75%' textAlign='center' fontSize='6xl' fontWeight='700' mb={8} color='gray.700'>
+          <Text
+            w={{ base: '100%', lg: '75%' }}
+            textAlign='center'
+            fontSize={{ base: '2xl', lg: '6xl' }}
+            fontWeight='700'
+            mb={8}
+            color='gray.700'
+          >
             {data.markdownRemark.frontmatter.title}
           </Text>
           <Box width='100%' mt={8} mb={8}>
             <Img alt='featured-image' fluid={data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid} />
           </Box>
-          <HStack w='65%'>
+          <Stack w={{ base: '100%', lg: '65%' }} direction={{ base: 'column', lg: 'row' }} spacing={{ base: 4, lg: 0 }}>
             <MotionBox
               d='flex'
               flexDirection='column'
@@ -91,11 +98,11 @@ const BlogPost: FC<BlogPostProps> = ({ data }) => {
             </MotionBox>
             <Flex align='center' mr={12}>
               <Avatar mr={4} src={data.allGithubData.nodes[0].data.viewer.avatarUrl} />
-              <Text color='gray.700' mr={1} fontSize='xl'>
+              <Text color='gray.700' mr={1} fontSize={{ base: 'sm', lg: 'xl' }}>
                 by
               </Text>
               <Text
-                fontSize='xl'
+                fontSize={{ base: 'sm', lg: 'xl' }}
                 color='gray.700'
                 as='a'
                 textDecoration='underline'
@@ -106,15 +113,15 @@ const BlogPost: FC<BlogPostProps> = ({ data }) => {
             </Flex>
             <Flex align='center' ref={mainRef}>
               <CalendarIcon color='gray.700' mr={4} w={6} h={6} />
-              <Text fontSize='xl' color='gray.700'>
+              <Text fontSize={{ base: 'sm', lg: 'xl' }} color='gray.700'>
                 {format(new Date(data.markdownRemark.frontmatter.date), 'dd MMMM, yyyy')}
               </Text>
             </Flex>
-          </HStack>
+          </Stack>
           <Box
             className='article'
             data-testid='post-content'
-            w='65%'
+            w={{ base: '100%', lg: '65%' }}
             dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
           ></Box>
         </VStack>

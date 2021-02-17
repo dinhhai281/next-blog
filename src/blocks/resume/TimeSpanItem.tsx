@@ -12,6 +12,7 @@ export interface TimeSpanItemProps {
   description: string;
   url: string;
   company: string;
+  jobTitle: string;
 }
 
 export const TimeSpanItem: VFC<TimeSpanItemProps> = ({
@@ -24,6 +25,7 @@ export const TimeSpanItem: VFC<TimeSpanItemProps> = ({
   description,
   url,
   company,
+  jobTitle,
 }) => {
   return (
     <Flex mb={4}>
@@ -65,7 +67,10 @@ export const TimeSpanItem: VFC<TimeSpanItemProps> = ({
         <Text color='gray.500' fontSize='xs'>
           {period}
         </Text>
-        <Text color='gray.500' fontSize='xs' d='flex' alignItems='center'>
+        <Text color='gray.600' fontSize='xs'>
+          {jobTitle}
+        </Text>
+        <Text color='gray.600' fontSize='xs' d='flex' alignItems='center'>
           <AtSignIcon boxSize={3} mr={1} color='pink.400' />
           {company}
         </Text>

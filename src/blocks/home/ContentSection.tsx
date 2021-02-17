@@ -55,7 +55,7 @@ interface InnerContentSectionProps extends ContentSectionProps {
 }
 
 const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRef, sectionRef, title, posts }) => {
-  const [gray800, pink600, gray900] = useToken('colors', ['gray.800', 'pink.600', 'gray.900']);
+  const [gray800, pink600] = useToken('colors', ['gray.800', 'pink.600']);
   const [focusId, setFocusId] = useState<string | null>(null);
   const intl = useIntl();
 
@@ -74,11 +74,12 @@ const InnerContentSection: VFC<InnerContentSectionProps> = React.memo(({ titleRe
           <MotionBox
             px={isFixed ? 8 : 0}
             h={isFixed ? 16 : 10}
+            zIndex={1}
             borderBottom='1px solid'
             animate={{
               position: isFixed ? 'fixed' : 'static',
-              background: isFixed ? `${gray800}` : `${gray900}`,
-              borderBottomColor: isFixed ? `${pink600}` : `${gray800}`,
+              background: isFixed ? `${gray800}` : 'transparent',
+              borderBottomColor: isFixed ? `${pink600}` : 'transparent',
               opacity: isFixed ? [0, 1] : 1,
             }}
             transition={{ duration: 0.4 }}

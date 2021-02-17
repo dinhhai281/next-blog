@@ -24,7 +24,7 @@ const Home: FC<HomeProps> = ({ data }) => {
 
   return (
     <>
-      <SEO title='Welcome' />
+      <SEO title={intl.formatMessage({ id: 'home.greeting' })} />
       <Container
         maxW='100%'
         px={[8]}
