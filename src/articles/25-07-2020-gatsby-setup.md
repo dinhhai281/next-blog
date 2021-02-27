@@ -9,7 +9,7 @@ featuredImage: ../images/setup-gatsby-typescript-tailwind/gatsby-featured.png
 
 *GatsbyJS* là một framework dựa trên ReactJS vàn GraphQL, phù hợp để xây dựng những ứng dụng web một cách nhanh cùng với hiệu năng vượt trội. Bài viết này sẽ nói về cách mình setup một project `GatsbyJS`. Cụ thể là một template `GatsbyJS` sử dụng `Typescript`, `TailwindCSS (PostCSS)` và `Unit Testing`.
 
-#### Cài đặt những thứ cần thiết
+# Cài đặt những thứ cần thiết
 
 Trước khi bắt đầu bạn cần cài đặt
 
@@ -24,7 +24,7 @@ npm i -g gatsby-cli
 ```
 
 
-#### Dùng Gatsby CLI để tạo 1 project GatsbyJS
+# Dùng Gatsby CLI để tạo 1 project GatsbyJS
 
 Với Gatsby CLI, chỉ cần một câu lệnh là công việc này sẽ hoàn thành.
 
@@ -38,7 +38,7 @@ Mình cũng có tạo 1 template là thành quả của bài viết này nếu m
 
 Quay lại, sử dụng `gatsby-starter-hello-world` bạn sẽ có một project gatsby không có bất kỳ plugin nào. Vì mục đích là để làm blog nên sau này chỉ thêm những plugin cần thiết cho việc đó thôi. Trên trang chủ của GatsbyJS bạn cũng có thể tìm được một cái template starter dùng cho viết blog đó 😋.
 
-#### Setup Typescript
+# Setup Typescript
 
 GatsbyJS hiện tại có hỗ trợ phần nào cho Typescript, chỉ cần đổi extension của file từ `.js` sang `.tsx` là được. Tuy nhiên với những file như `gatsby-config.js`, `gatsby-brower.js`, `gatsby-node.js` thì không dùng Typescirpt được nhé.
 
@@ -122,7 +122,7 @@ import Layout from '@components/layout.tsx';
 
 <br>
 
-#### Setup TailwindCSS
+# Setup TailwindCSS
 
 `TailwindCSS` là một CSS framework mà mình khá thích và dạo gần đây cũng thích style Atomic CSS. Nếu bạn không thích thì có thể dùng `styled-component`/`emotion` hay SASS tuỳ thích nhé.
 
@@ -195,7 +195,7 @@ Sau đó trong file `gatsby-browser.js`
 import './src/css/style.css';
 ```
 
-#### Setup ESLint
+# Setup ESLint
 
 Hiện tại TSLint đã bị deprecated nên mình sẽ dùng ESLint cho hợp thời nhé. Đầu tiên là cài những package sau:
 
@@ -282,7 +282,7 @@ Nếu muốn tự dộng fix lint khi save file thì hãy tạo file `.vscode/se
 }
 ```
 
-#### Cuối cùng là Unit Test
+# Cuối cùng là Unit Test
 
 Thật ra để làm blog thì phần này không cần thiết đâu, nhưng mà mục đích của cái template này có thể làm gì cũng được nên mình sẽ thêm phần setup unit test nữa.
 

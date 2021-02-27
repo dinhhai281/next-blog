@@ -63,6 +63,9 @@
     margin-top: 1em;
     margin-bottom: -.46em;
   }
+  pre[class*="language-"] {
+    margin: 1em 0;
+  }
 }
 
 @media print {
