@@ -39,12 +39,12 @@ const Home: FC<HomeProps> = ({ data }) => {
           <VStack w={{ base: '100%', lg: '50%' }}>
             <ContentSection
               title={intl.formatMessage({ id: 'home.programming' })}
-              posts={data.allMarkdownRemark.nodes}
+              posts={data.allMarkdownRemark.nodes.filter(node => node.frontmatter.category === 'PROGRAMMING')}
               onActive={secActiveKey}
             />
             <ContentSection
               title={intl.formatMessage({ id: 'home.cooking' })}
-              posts={data.allMarkdownRemark.nodes}
+              posts={data.allMarkdownRemark.nodes.filter(node => node.frontmatter.category === 'COOKING')}
               onActive={secActiveKey}
             />
           </VStack>
@@ -66,6 +66,7 @@ export const query = graphql`
           tags
           date
           duration
+          category
         }
         id
         excerpt

@@ -5,6 +5,7 @@ title: "State Management Trong Angular Với NgRx"
 tags: "TYPESCRIPT,ANGULAR,RXJS"
 duration: 15
 featuredImage: ../images/state-management-with-ngrx/ngrx-featured.png
+category: PROGRAMMING
 ---
 
 State Management hay quản lý state là một khái niệm khá phổ biến ở React và Angular cũng đã có một sự giao lưu tuyệt vời với nó qua NgRx - Reactive State for Angular. Bài viết này mình sẽ chia sẽ về cách tổ chức state của mình khi sử dụng NgRx.

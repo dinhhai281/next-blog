@@ -1,6 +1,8 @@
 import { contramap, ordNumber } from 'fp-ts/lib/Ord';
 import { FluidObject, FixedObject } from 'gatsby-image';
 
+type CategoryType = 'PROGRAMMING' | 'COOKING';
+
 export interface MarkdownRemark {
   id: string;
   excerpt: string;
@@ -17,6 +19,7 @@ export interface MarkdownRemark {
     date: string;
     title: string;
     duration: string;
+    category: CategoryType;
   };
 }
 
