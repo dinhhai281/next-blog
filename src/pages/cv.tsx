@@ -144,11 +144,23 @@ const CV = () => {
               <TimeSpanItem
                 bulletColor='pink.400'
                 lineColor='pink.400'
+                organization='Retail IQ'
+                period='April 2021 - Present'
+                title='Front-end Developer'
+                tech='Javascript, Typescript, React, ...'
+                description='Take care multiple products of Retail team at Tiki, refactor and improve existing front-end code base quality.'
+                url='tiki.vn'
+                company='Tiki Corporation'
+                jobTitle='Senior Software Engineer'
+              />
+              <TimeSpanItem
+                bulletColor='pink.400'
+                lineColor='pink.400'
                 organization='Katalon'
                 period='Nov 2020 - Feb 2021'
                 title='Fullstack Developer'
                 tech='Typescript, Kotlin, React, Quarkus, Redux, ...'
-                description='Take main responsibility on front-end application architect, also implement features from back-end to front-end with React and Kotlin on a customer-facing license management web application.'
+                description='Apply and share to team member about state management best practices for front-end, also implement features from back-end to front-end on a customer-facing license management web application.'
                 url='katalon.com'
                 company='KMS Technology'
                 jobTitle='Senior Software Engineer'
@@ -158,9 +170,9 @@ const CV = () => {
                 lineColor='pink.400'
                 organization='Elemica'
                 period='Nov 2019 - Jan 2021'
-                title='Front-end Lead'
+                title='Front-end Developer'
                 tech='Typescript, Angular, Ngrx, RxJS, ...'
-                description='Lead a team of two front-end developers on technical aspects, review code and provide guidelines for front-end implementation, conduct technical sharing for the team and company about Angular, Reactive Programming.'
+                description='Review code and provide guidelines for front-end implementation, conduct technical sharing for the team about  Angular, Reactive Programming, State Management'
                 url='elemica.com'
                 company='KMS Technology'
                 jobTitle='Senior Software Engineer'
@@ -175,18 +187,6 @@ const CV = () => {
                 description='Analyze and implement features base on design specification, work heavily on application animation.'
                 url='christinas.vn'
                 company='KMS Technology'
-                jobTitle='Software Engineer'
-              />
-              <TimeSpanItem
-                bulletColor='pink.400'
-                lineColor='transparent'
-                organization="Joyn'it"
-                period='June 2018 - Sep 2018'
-                title='Front-end Developer'
-                tech='Typescript, Angular, ...'
-                description='Transform design prototype into high-performance implementation on web.'
-                url='joynit.fr'
-                company='Ant Tech'
                 jobTitle='Software Engineer'
               />
             </VStack>
